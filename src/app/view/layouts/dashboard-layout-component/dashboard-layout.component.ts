@@ -2,6 +2,7 @@ import {Component, Renderer2} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FooterComponent} from '../../components/footer/footer.component';
+import {TopBarComponent} from '../../components/top-bar/top-bar.component';
 
 @Component({
   selector: 'app-dashboard-layout-component',
@@ -12,7 +13,8 @@ import {FooterComponent} from '../../components/footer/footer.component';
     RouterLink,
     RouterLinkActive,
     FooterComponent,
-    NgForOf
+    NgForOf,
+    TopBarComponent
   ],
   templateUrl: './dashboard-layout.component.html',
   styleUrl: './dashboard-layout.component.css'
