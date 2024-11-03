@@ -1,0 +1,12 @@
+<div class="p-4 rounded">
+  <h2 class="text-xl font-semibold mb-2 text-black dark:text-white">Daily Income</h2>
+  <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded">
+    <canvas baseChart
+            [datasets]="dailyIncomeChartData"
+            [labels]="dailyIncomeChartLabels"
+            [options]="dailyIncomeChartOptions"
+            [legend]="dailyIncomeChartLegend"
+            [type]="dailyIncomeChartType">
+    </canvas>
+  </div>
+</div>
