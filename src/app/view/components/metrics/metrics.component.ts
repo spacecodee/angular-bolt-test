@@ -1,4 +1,4 @@
-import {Component, Renderer2, OnInit, OnDestroy, ViewChild} from '@angular/core';
+import {Component, Renderer2, OnInit, ViewChild} from '@angular/core';
 import {Chart, ChartDataset, ChartOptions, ChartType, registerables} from 'chart.js';
 import {BaseChartDirective} from 'ng2-charts';
 
@@ -11,24 +11,16 @@ import {BaseChartDirective} from 'ng2-charts';
   templateUrl: './metrics.component.html',
   styleUrl: './metrics.component.css'
 })
-export class MetricsComponent implements OnInit, OnDestroy {
+export class MetricsComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public lineChartOptions: ChartOptions = {
     responsive: true,
     scales: {
-      x: {
-        ticks: {
-          color: '' // Set dynamically
-        }
-      },
       y: {
         type: 'linear',
         display: true,
         position: 'left',
-        ticks: {
-          color: '' // Set dynamically
-        }
       },
       y1: {
         type: 'linear',
@@ -37,9 +29,6 @@ export class MetricsComponent implements OnInit, OnDestroy {
         grid: {
           drawOnChartArea: false,
         },
-        ticks: {
-          color: '' // Set dynamically
-        }
       },
     },
   };
@@ -66,8 +55,6 @@ export class MetricsComponent implements OnInit, OnDestroy {
     }
   ];
 
-  private mutationObserver: MutationObserver | undefined;
-
   constructor(private readonly renderer: Renderer2) {
     // Register Chart.js components
     Chart.register(...registerables);
@@ -75,35 +62,15 @@ export class MetricsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.setChartStyles();
-    this.observeDarkModeToggle();
-  }
-
-  ngOnDestroy() {
-    if (this.mutationObserver) {
-      this.mutationObserver.disconnect();
-    }
   }
 
   setChartStyles() {
     const body = this.renderer.selectRootElement('body', true);
     const isDarkMode = body.classList.contains('dark');
-    const tickColor = isDarkMode ? '#FFFFFF' : '#000000'; // White for dark mode, black for light mode
-
-    this.lineChartOptions.scales?.['x']?.ticks && (this.lineChartOptions.scales['x'].ticks.color = tickColor);
-    this.lineChartOptions.scales?.['y']?.ticks && (this.lineChartOptions.scales['y'].ticks.color = tickColor);
-    this.lineChartOptions.scales?.['y1']?.ticks && (this.lineChartOptions.scales['y1'].ticks.color = tickColor);
 
     this.lineChartData[0].backgroundColor = isDarkMode ? 'rgba(75, 192, 192, 0.2)' : 'rgba(75, 192, 192, 0.5)';
     this.lineChartData[1].backgroundColor = isDarkMode ? 'rgba(153, 102, 255, 0.2)' : 'rgba(153, 102, 255, 0.5)';
 
     this.chart?.update();
-  }
-
-  observeDarkModeToggle() {
-    const body = this.renderer.selectRootElement('body', true);
-    this.mutationObserver = new MutationObserver(() => {
-      this.setChartStyles();
-    });
-    this.mutationObserver.observe(body, {attributes: true, attributeFilter: ['class']});
   }
 }
