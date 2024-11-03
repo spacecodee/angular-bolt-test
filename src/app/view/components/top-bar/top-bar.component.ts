@@ -23,5 +23,18 @@ export class TopBarComponent {
 
   toggleNotifications() {
     this.showNotifications = !this.showNotifications;
+    if (this.showNotifications) {
+      document.addEventListener('click', this.onDocumentClick);
+    } else {
+      document.removeEventListener('click', this.onDocumentClick);
+    }
+  }
+
+  onDocumentClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest('app-notification-panel') && !target.closest('button')) {
+      this.showNotifications = false;
+      document.removeEventListener('click', this.onDocumentClick);
+    }
   }
 }
