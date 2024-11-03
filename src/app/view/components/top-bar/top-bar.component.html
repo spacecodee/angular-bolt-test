@@ -1,8 +1,10 @@
 <div class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-md">
-  <div class="flex items-center space-x-8 ml-auto">
-    <i class="fas fa-search text-gray-600 dark:text-gray-300"></i>
-    <button (click)="onNotificationsClick()" class="focus:outline-none">
+  <div class="flex items-center space-x-10 ml-auto relative">
+    <i class="fas fa-search font-bold text-gray-600 dark:text-gray-300"></i>
+    <button (click)="toggleNotifications()" class="focus:outline-none relative">
       <i class="fas fa-bell text-gray-600 dark:text-gray-300"></i>
+      <app-notification-panel *ngIf="showNotifications" [notifications]="notifications"
+                              class="absolute right-0 mt-2"></app-notification-panel>
     </button>
     <div class="relative w-8 h-8">
       <img ngSrc="{{this.userPhotoUrl}}" alt="User" class="rounded-full object-cover" fill>
