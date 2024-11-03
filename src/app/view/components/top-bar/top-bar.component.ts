@@ -14,6 +14,7 @@ import {NotificationPanelComponent} from '../notification-panel/notification-pan
   styleUrl: './top-bar.component.css'
 })
 export class TopBarComponent {
+  userName = 'John Doe';
   userPhotoUrl = 'https://picsum.photos/200';
   showNotifications = false;
   notifications = [

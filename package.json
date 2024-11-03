@@ -20,6 +20,8 @@
     "@angular/router": "^18.2.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
     "autoprefixer": "^10.4.20",
+    "chart.js": "^4.4.6",
+    "ng2-charts": "^6.0.1",
     "postcss": "^8.4.47",
     "rxjs": "~7.8.0",
     "tailwindcss": "^3.4.14",

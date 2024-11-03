@@ -1,13 +1,17 @@
-<div class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-md">
+<div class="flex items-center justify-between p-4 bg-neutral-50 dark:bg-gray-800 shadow-md">
   <div class="flex items-center space-x-6 ml-auto relative pr-5">
-    <i class="fas fa-search font-bold text-gray-600 dark:text-gray-300"></i>
+    <i class="fas fa-search font-bold text-gray-600 dark:text-gray-200 text-lg"></i>
     <button (click)="toggleNotifications()" class="focus:outline-none relative">
-      <i class="fas fa-bell text-gray-600 dark:text-gray-300"></i>
+      <i class="fas fa-bell text-gray-600 dark:text-gray-200 text-lg"></i>
       <app-notification-panel *ngIf="showNotifications" [notifications]="notifications"
                               class="absolute right-0 mt-2"></app-notification-panel>
     </button>
-    <div class="relative w-8 h-8">
-      <img ngSrc="{{this.userPhotoUrl}}" alt="User" class="rounded-full object-cover" fill>
-    </div>
+
+    <button class="flex items-center space-x-2">
+      <div class="relative w-10 h-10">
+        <img ngSrc="{{this.userPhotoUrl}}" alt="User" class="rounded-full object-cover" fill>
+      </div>
+      <span class="text-gray-600 dark:text-gray-200 text-sm">{{ userName }}</span>
+    </button>
   </div>
 </div>

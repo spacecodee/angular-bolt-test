@@ -1,0 +1,20 @@
+<div class="p-4 rounded">
+  <h2 class="text-xl font-semibold mb-2 text-black dark:text-white">Metrics</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded">
+      <p class="text-gray-800 dark:text-neutral-200">Profit</p>
+      <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [legend]="lineChartLegend"
+              [type]="lineChartType">
+      </canvas>
+    </div>
+
+    <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded">
+      <p class="text-black dark:text-white">Income by Day</p>
+      <p class="text-black dark:text-white">$500.00</p>
+    </div>
+  </div>
+</div>
