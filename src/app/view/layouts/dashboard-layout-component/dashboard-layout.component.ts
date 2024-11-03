@@ -1,6 +1,7 @@
 import {Component, Renderer2} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {FooterComponent} from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-dashboard-layout-component',
@@ -9,7 +10,8 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
     NgClass,
     RouterOutlet,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    FooterComponent
   ],
   templateUrl: './dashboard-layout.component.html',
   styleUrl: './dashboard-layout.component.css'

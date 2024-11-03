@@ -1,11 +1,12 @@
 import {Component, Renderer2} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {NgClass} from '@angular/common';
+import {FooterComponent} from './view/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgClass],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgClass, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

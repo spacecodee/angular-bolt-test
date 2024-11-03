@@ -1,47 +1,52 @@
-<div class="flex">
-  <!-- Sidebar -->
-  <nav
-    class="bg-white dark:bg-gray-800 w-64 h-screen p-4 text-black dark:text-white shadow-lg flex flex-col justify-between">
-    <ul class="space-y-4">
-      <li>
-        <a routerLink="/dashboard" routerLinkActive="font-bold" class="flex items-center space-x-2">
-          <i class="fas fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/dashboard/products" routerLinkActive="font-bold" class="flex items-center space-x-2">
-          <i class="fas fa-box-open"></i>
-          <span>Products</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/dashboard/categories" routerLinkActive="font-bold" class="flex items-center space-x-2">
-          <i class="fas fa-list"></i>
-          <span>Categories</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/dashboard/cart-summary" routerLinkActive="font-bold" class="flex items-center space-x-2">
-          <i class="fas fa-shopping-cart"></i>
-          <span>Cart Summary</span>
-        </a>
-      </li>
-    </ul>
-    <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
-      <button (click)="toggleDarkMode()" class="flex items-center space-x-2 mb-4">
-        <i [ngClass]="{'fas fa-sun': isDarkMode, 'fas fa-moon': !isDarkMode}"></i>
-        <span>Dark / Light Mode</span>
-      </button>
-      <button class="flex items-center space-x-2">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Log Out</span>
-      </button>
-    </div>
-  </nav>
+<div class="flex flex-col min-h-screen">
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <nav
+      class="bg-white dark:bg-gray-800 w-64 h-screen p-4 text-black dark:text-white shadow-lg flex flex-col justify-between">
+      <ul class="space-y-4">
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="font-bold" class="flex items-center space-x-2">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/products" routerLinkActive="font-bold" class="flex items-center space-x-2">
+            <i class="fas fa-box-open"></i>
+            <span>Products</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/categories" routerLinkActive="font-bold" class="flex items-center space-x-2">
+            <i class="fas fa-list"></i>
+            <span>Categories</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/cart-summary" routerLinkActive="font-bold" class="flex items-center space-x-2">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart Summary</span>
+          </a>
+        </li>
+      </ul>
+      <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
+        <button (click)="toggleDarkMode()" class="flex items-center space-x-2 mb-4">
+          <i [ngClass]="{'fas fa-sun': isDarkMode, 'fas fa-moon': !isDarkMode}"></i>
+          <span>Dark / Light Mode</span>
+        </button>
+        <button class="flex items-center space-x-2">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </nav>
 
-  <!-- Main Content -->
-  <div class="app-container p-4 flex-1 bg-gray-100 dark:bg-gray-900">
-    <router-outlet></router-outlet>
+    <!-- Main Content -->
+    <div class="app-container p-4 flex-1 bg-gray-100 dark:bg-gray-900">
+      <router-outlet></router-outlet>
+    </div>
+
+
+    <app-footer></app-footer>
   </div>
 </div>
