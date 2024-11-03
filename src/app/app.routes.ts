@@ -13,10 +13,10 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardLayoutComponent,
     children: [
-      {path: '', component: DashboardComponent},
-      {path: 'products', component: ProductComponent},
-      {path: 'categories', component: CategoriesComponent},
-      {path: 'cart-summary', component: CartSummaryComponent},
+      {path: '', component: DashboardComponent, outlet: 'dashboard'},
+      {path: 'products', component: ProductComponent, outlet: 'dashboard'},
+      {path: 'categories', component: CategoriesComponent, outlet: 'dashboard'},
+      {path: 'cart-summary', component: CartSummaryComponent, outlet: 'dashboard'},
     ]
   }
 ];
