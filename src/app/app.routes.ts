@@ -3,11 +3,20 @@ import {DashboardComponent} from './view/pages/dashboard/dashboard.component';
 import {CategoriesComponent} from './view/pages/categories/categories.component';
 import {CartSummaryComponent} from './view/pages/cart-summary/cart-summary.component';
 import {ProductComponent} from './view/pages/product/product.component';
+import {AppComponent} from './app.component';
+import {DashboardLayoutComponent} from './view/layouts/dashboard-layout-component/dashboard-layout.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'products', component: ProductComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'cart-summary', component: CartSummaryComponent},
+  {path: 'home', component: AppComponent}, // Assuming you have a HomeComponent
+  {
+    path: 'dashboard',
+    component: DashboardLayoutComponent,
+    children: [
+      {path: '', component: DashboardComponent},
+      {path: 'products', component: ProductComponent},
+      {path: 'categories', component: CategoriesComponent},
+      {path: 'cart-summary', component: CartSummaryComponent},
+    ]
+  }
 ];
