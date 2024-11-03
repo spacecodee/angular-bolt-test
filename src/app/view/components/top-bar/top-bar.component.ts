@@ -12,4 +12,9 @@ import {NgOptimizedImage} from '@angular/common';
 })
 export class TopBarComponent {
   userPhotoUrl = 'https://picsum.photos/200';
+
+  onNotificationsClick() {
+    // Handle the notification button click event here
+    console.log('Notifications button clicked');
+  }
 }

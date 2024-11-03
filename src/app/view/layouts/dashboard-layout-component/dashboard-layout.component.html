@@ -2,36 +2,37 @@
   <!-- Top Bar -->
   <app-top-bar></app-top-bar>
 
-  <!-- Sidebar -->
-  <nav
-    class="bg-white dark:bg-gray-800 w-64 h-screen p-4 text-black dark:text-white shadow-lg flex flex-col justify-between">
-    <ul class="space-y-4">
-      <li *ngFor="let route of routes">
-        <a [routerLink]="route.path" routerLinkActive="font-bold text-blue-500"
-           [routerLinkActiveOptions]="{ exact: true }"
-           class="flex items-center space-x-2">
-          <i [class]="route.icon"></i>
-          <span>{{ route.name }}</span>
-        </a>
-      </li>
-    </ul>
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <nav
+      class="bg-white dark:bg-gray-800 w-64 h-full p-4 text-black dark:text-white shadow-lg flex flex-col justify-between">
+      <ul class="space-y-4">
+        <li *ngFor="let route of routes">
+          <a [routerLink]="route.path" routerLinkActive="font-bold text-blue-500"
+             [routerLinkActiveOptions]="{ exact: true }"
+             class="flex items-center space-x-2">
+            <i [class]="route.icon"></i>
+            <span>{{ route.name }}</span>
+          </a>
+        </li>
+      </ul>
+      <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
+        <button (click)="toggleDarkMode()" class="flex items-center space-x-2 mb-4">
+          <i [ngClass]="{'fas fa-sun': isDarkMode, 'fas fa-moon': !isDarkMode}"></i>
+          <span>Dark / Light Mode</span>
+        </button>
+        <button class="flex items-center space-x-2">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </nav>
 
-    <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
-      <button (click)="toggleDarkMode()" class="flex items-center space-x-2 mb-4">
-        <i [ngClass]="{'fas fa-sun': isDarkMode, 'fas fa-moon': !isDarkMode}"></i>
-        <span>Dark / Light Mode</span>
-      </button>
-      <button class="flex items-center space-x-2">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Log Out</span>
-      </button>
+    <!-- Main Content -->
+    <div class="app-container p-4 flex-1 bg-gray-100 dark:bg-gray-900">
+      <router-outlet></router-outlet>
     </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="app-container p-4 flex-1 bg-gray-100 dark:bg-gray-900">
-    <router-outlet></router-outlet>
   </div>
-</div>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>
