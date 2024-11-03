@@ -1,5 +1,5 @@
 import {Component, Renderer2} from '@angular/core';
-import {NgClass} from '@angular/common';
+import {NgClass, NgForOf} from '@angular/common';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FooterComponent} from '../../components/footer/footer.component';
 
@@ -11,7 +11,8 @@ import {FooterComponent} from '../../components/footer/footer.component';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    FooterComponent
+    FooterComponent,
+    NgForOf
   ],
   templateUrl: './dashboard-layout.component.html',
   styleUrl: './dashboard-layout.component.css'
@@ -19,6 +20,13 @@ import {FooterComponent} from '../../components/footer/footer.component';
 export class DashboardLayoutComponent {
 
   isDarkMode = false;
+
+  routes = [
+    {path: '/dashboard', icon: 'fas fa-tachometer-alt', name: 'Dashboard'},
+    {path: '/dashboard/products', icon: 'fas fa-box-open', name: 'Products'},
+    {path: '/dashboard/categories', icon: 'fas fa-list', name: 'Categories'},
+    {path: '/dashboard/cart-summary', icon: 'fas fa-shopping-cart', name: 'Cart Summary'}
+  ];
 
   constructor(private readonly renderer: Renderer2) {
   }
